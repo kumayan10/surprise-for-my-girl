@@ -2,142 +2,175 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Love For You 💖</title>
+<title>Only You ❤️</title>
 
-<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
-    background: linear-gradient(135deg, #ffe0ec, #ffcad4);
-    animation: bgSlide 12s infinite alternate;
-  }
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:url("images/bg.jpg") center/cover no-repeat fixed;
+}
 
-  @keyframes bgSlide {
-    0% { background-position: 0% 0%; }
-    100% { background-position: 100% 100%; }
-  }
+.overlay{
+  background:rgba(255,235,242,0.9);
+  min-height:100vh;
+  padding:25px;
+  text-align:center;
+}
 
-  .container { text-align: center; padding: 30px; }
+h1,h2{
+  font-family:'Great Vibes',cursive;
+  color:#b3003b;
+}
 
-  h1, h2 {
-    font-family: 'Great Vibes', cursive;
-    color: #b3003b;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-  }
+p{
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+}
 
-  p {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-  }
+.card{
+  background:white;
+  border-radius:25px;
+  padding:25px;
+  max-width:450px;
+  margin:30px auto;
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
+  animation:fade 1s;
+}
 
-  .card {
-    background: rgba(255,255,255,0.95);
-    border-radius: 20px;
-    margin: 30px auto;
-    padding: 25px;
-    max-width: 450px;
-    box-shadow: 0px 10px 30px rgba(0,0,0,0.15);
-    opacity: 0;
-    animation: fadeUp 1s forwards;
-  }
+@keyframes fade{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0px); }
-  }
+button{
+  background:#ff5c8a;
+  color:white;
+  border:none;
+  padding:12px 28px;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  margin:10px;
+}
 
-  button {
-    background: #ff4b84;
-    color: #fff;
-    border: none;
-    padding: 12px 26px;
-    border-radius: 25px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-  }
-  button:hover {
-    background: #e03d72;
-  }
+.hidden{display:none;}
 
-  img {
-    width: 90%;
-    border-radius: 18px;
-    margin-top: 15px;
-    animation: float 3s infinite ease-in-out;
-  }
+img{
+  max-width:100%;
+  border-radius:20px;
+  margin-top:15px;
+  animation:float 3s infinite;
+}
 
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0px); }
-  }
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+  100%{transform:translateY(0)}
+}
 
-  .hidden { display: none; }
+/* collage */
+.collage{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
 </style>
 </head>
 
 <body>
+<div class="overlay">
 
-<div class="container">
+<h1>Hey My Heart 🌸</h1>
+<p>
+From the moment you walked into my life,<br>
+everything felt softer… warmer… real.
+</p>
 
-<h1>Hello Beautiful 🌸</h1>
-<p>Today is **Propose Day** and I made something just for you ❤️</p>
-
+<!-- STEP 1 -->
 <div class="card" id="step1">
-  <h2>Do you wanna see it?</h2>
-  <button onclick="show('showPics')">Yes 💕</button>
-  <button onclick="show('howdare')">No 😜</button>
+  <p>Before I say anything…<br>can I show you something close to my heart? 🥺</p>
+  <button onclick="show('collage')">Yes 💕</button>
+  <button id="no1">No 😜</button>
 </div>
 
-<div class="card hidden" id="howdare">
-  <h2>WHAT??? 😤</h2>
-  <p>I was just warming up my heart… 🥺</p>
-  <button onclick="show('step1')">Try Again 💗</button>
+<!-- COLLAGE -->
+<div class="card hidden" id="collage">
+  <h2>Us ❤️</h2>
+  <div class="collage">
+    <img src="images/c1.jpg">
+    <img src="images/c2.jpg">
+    <img src="images/c3.jpg">
+    <img src="images/c4.jpg">
+  </div>
+  <p>
+    Every picture holds a memory,<br>
+    every memory holds *you*.
+  </p>
+  <button onclick="show('slide')">Next 💫</button>
 </div>
 
-<div class="card hidden" id="showPics">
-  <h2>Look ❤️</h2>
-  <img src="https://images.pexels.com/photos/30592535/pexels-photo-30592535.jpeg" alt="Cute Teddy with Roses">
-  <button onclick="show('valentine')">Next 💘</button>
+<!-- SLIDESHOW -->
+<div class="card hidden" id="slide">
+  <h2>My Favourite Story 💞</h2>
+  <img id="slideshow" src="images/s1.jpg">
+  <button onclick="show('question')">Next 💘</button>
 </div>
 
-<div class="card hidden" id="valentine">
-  <h2>Propose Time 🌹</h2>
-  <p>You make the ordinary feel beautiful, my heart feel home, and my smiles real.</p>
-  <button onclick="show('nope')">no 😜</button>
-  <button onclick="show('gifts')">yes 💖</button>
+<!-- QUESTION -->
+<div class="card hidden" id="question">
+  <img src="images/teddy.jpg">
+  <p>
+    I may not be perfect,<br>
+    but loving you is the most perfect thing I do.
+  </p>
+  <h2>Will you be my Valentine? 🌹</h2>
+  <button id="no2">No 🙈</button>
+  <button onclick="show('final')">Yes ❤️</button>
 </div>
 
-<div class="card hidden" id="nope">
-  <h2>Oops 😄</h2>
-  <p>Wrong answer! Try again 💞</p>
-  <button onclick="show('valentine')">Okay 💗</button>
-</div>
-
-<div class="card hidden" id="gifts">
-  <h2>Here’s something 🎁</h2>
-  <img src="https://images.pexels.com/photos/30592534/pexels-photo-30592534.jpeg" alt="Teddy with Bouquet">
-  <img src="https://pixnio.com/media/watercolor-pinkish-romantic-reddish-background.jpg" alt="Romantic Teddy & Flowers">
-  <button onclick="show('final')">Last ❤️</button>
-</div>
-
+<!-- FINAL -->
 <div class="card hidden" id="final">
-  <h1>Always You ❤️</h1>
-  <img src="https://images.pexels.com/photos/30592535/pexels-photo-30592535.jpeg" alt="Teddy Love">
-  <p>I don’t promise perfection, but I promise effort, loyalty, and choosing you every single day ♡</p>
+  <h1>It’s Always You 💍</h1>
+  <img src="images/final.jpg">
+  <p>
+    I choose you today.<br>
+    I’ll choose you tomorrow.<br>
+    And every day after that — it’ll still be you.
+  </p>
 </div>
 
 </div>
 
 <script>
-function show(id) {
-  document.querySelectorAll('.card').forEach(c => c.classList.add('hidden'));
-  document.getElementById(id).classList.remove('hidden');
+// runaway NO buttons
+function runaway(btn){
+  btn.addEventListener("mouseover",()=>{
+    btn.style.position="absolute";
+    btn.style.left=Math.random()*70+"%";
+    btn.style.top=Math.random()*70+"%";
+  });
+}
+runaway(document.getElementById("no1"));
+runaway(document.getElementById("no2"));
+
+// slideshow
+let slides=["images/s1.jpg","images/s2.jpg","images/s3.jpg","images/s4.jpg"];
+let i=0;
+setInterval(()=>{
+  let img=document.getElementById("slideshow");
+  if(img){
+    i=(i+1)%slides.length;
+    img.src=slides[i];
+  }
+},2500);
+
+// navigation
+function show(id){
+  document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
 }
 </script>
 
